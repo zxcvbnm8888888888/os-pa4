@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Currently, the CPU scheduler of ``xv6`` uses a simple round-robin policy. The goal of this project is to understand the scheduling subsystem of the ``xv6`` by implementing a simplified version of the Linux 2.4 scheduler algorithm.
+Currently, the CPU scheduler of ``xv6`` uses a simple round-robin policy. The goal of this project is to understand the scheduling subsystem of ``xv6`` by implementing a simplified version of the Linux 2.4 scheduler algorithm.
 
 
 ## Background
