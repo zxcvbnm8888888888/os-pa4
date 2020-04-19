@@ -218,7 +218,7 @@ $ schedtest2
 $
 ```
 
-In the above example, you can see that the number of ticks used by each process varies depending on its nice value which is changed every 5 seconds. We provide you with a Python script called ``graph.py`` in the ``./xv6-riscv-snu`` directory. You can use the Python script to convert the above ``xv6`` output into a graph as follows:
+In the above example, you can see that the number of ticks used by each process varies depending on its nice value which is changed every 30 seconds. We provide you with a Python script called ``graph.py`` in the ``./xv6-riscv-snu`` directory. You can use the Python script to convert the above ``xv6`` output into a graph image. In order to do this, you should run ``xv6`` using the ``make qemu-log`` command that saves all the output into the file named ``xv6.log``. And then run the ``make png`` command to generate the ``graph.png`` file using the Python script, ``graph.py``.
 
 <pre>
 $ <b>make qemu-log</b>
