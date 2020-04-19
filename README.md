@@ -232,9 +232,9 @@ $ <b>schedtest2</b>                <---- run the schedtest2 program
 5, 18, 18, 18
 10, 18, 18, 18
 ...
-$ QEMU: Terminated          <---- quit the qemu using ^a-x. xv6 output is available in the xv6.log file
+$ QEMU: Terminated          <---- quit qemu using ^a-x. xv6 output is available in the xv6.log file
 
-$ <b>make png</b>                 <---- Generate the graph. (this should be done on Ubuntu, not on xv6)
+$ <b>make png</b>                  <---- Generate the graph. (this should be done on Ubuntu, not on xv6)
 ./graph.py xv6.log graph.png
 $
 </pre>
