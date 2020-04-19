@@ -220,24 +220,24 @@ $
 
 In the above example, you can see that the number of ticks used by each process varies depending on its nice value which is changed every 5 seconds. We provide you with a Python script called ``graph.py`` in the ``./xv6-riscv-snu`` directory. You can use the Python script to convert the above ``xv6`` output into a graph as follows:
 
-```
-$ make qemu-log
+<pre>
+$ <b>make qemu-log</b>
 qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 3G -smp 1 -nographic -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0 | tee xv6.log
 
 xv6 kernel is booting
 
 init: starting sh
-$ schedtest2                <---- run the schedtest2 program
+$ <b>schedtest2</b>                <---- run the schedtest2 program
 0, 7, 7, 6
 5, 18, 18, 18
 10, 18, 18, 18
 ...
 $ QEMU: Terminated          <---- quit the qemu using ^a-x. xv6 output is available in the xv6.log file
 
-$ make png                  <---- Generate the graph. (this should be done on Ubuntu, not on xv6)
+$ <b>make png</b>                 <---- Generate the graph. (this should be done on Ubuntu, not on xv6)
 ./graph.py xv6.log graph.png
 $
-```
+</pre>
 
 If everything goes fine, you will get the following graph:
 
