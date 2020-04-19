@@ -241,7 +241,7 @@ $
 
 If everything goes fine, you will get the following graph:
 
-![PNG image here](http://csl.snu.ac.kr/courses/4190.307/2020-1/pa4.png)
+![PNG image here](https://github.com/snu-csl/os-pa4/blob/master/graph.png)
 
 
 ## Restrictions
