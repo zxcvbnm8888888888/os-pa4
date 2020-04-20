@@ -79,8 +79,9 @@ Our simplified Linux 2.4 scheduler works as follows:
                 = p->counter + (20 - p->nice)  , Otherwise
 ```
 
+3. If there are no runnable processes, the scheduler busy-waits in the current epoch (without starting a new epoch).
 
-3. Eventually, the ``p->counter`` values of all the runnable processes will become zero. Now the scheduler moves on to a new __epoch__ and redistributes the time slice for __*all*__ processes. Basically, the time slice (in ticks) of a process is determined by the following formula:
+4. Eventually, the ``p->counter`` values of all the runnable processes will become zero. Now the scheduler moves on to the next __epoch__ and redistributes time slices for __*all*__ processes. Basically, the time slice (in ticks) of a process is determined by the following formula:
 ```
     p->counter = ((20-(p->nice)) >> 2) + 1                       // for runnable processes
 ```
@@ -93,9 +94,9 @@ The blocked processes (e.g., processes waiting for I/O) will have non-zero ``p->
 
 Note that because only half of the remaining time slice is added to the base time slice, the ``p->counter`` value never becomes larger than twice its base time slice. 
 
-4. When forking a new child process, the parent process' remaining time slice is split between the parent and the child; i.e., ``(p->counter + 1) >> 1`` is given to the parent, and ``p->counter >> 1`` is given to the child. This prevents users from forking new children to get unlimited time slice.
+5. When forking a new child process, the parent process' remaining time slice is split between the parent and the child; i.e., ``(p->counter + 1) >> 1`` is given to the parent, and ``p->counter >> 1`` is given to the child. This prevents users from forking new children to get unlimited time slice.
 
-5. Once scheduled, the running process is not preempted until the end of its time slice even if a new process with the higher goodness value wakes up.
+6. Once scheduled, the running process is __*NOT*__ preempted until the end of its time slice even if a new process with the higher goodness value wakes up.
 
 
 ### 3. Revise the ``getticks()`` system call
