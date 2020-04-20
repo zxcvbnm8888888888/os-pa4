@@ -66,7 +66,7 @@ __RETURN VALUE__
   - The resulting nice value exceeds the range [-20, 19].
 
 
-### 2. Implement a Simplified Linux 2.4 scheduler
+### 2. Implement a simplified Linux 2.4 scheduler
 
 Our simplified Linux 2.4 scheduler works as follows:
 
