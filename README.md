@@ -94,7 +94,7 @@ The blocked processes (e.g., processes waiting for I/O) will have non-zero ``p->
 
 Note that because only half of the remaining time slice is added to the base time slice, the ``p->counter`` value never becomes larger than twice its base time slice. 
 
-5. When forking a new child process, the parent process' remaining time slice is split between the parent and the child; i.e., ``(p->counter + 1) >> 1`` is given to the parent, and ``p->counter >> 1`` is given to the child. This prevents users from forking new children to get unlimited time slice.
+5. When forking a new child process, the parent process' remaining time slice is split between the parent and the child; i.e., ``p->counter >> 1`` is given to the parent, and ``(p->counter + 1) >> 1`` is given to the child. This prevents users from forking new children to get unlimited time slice.
 
 6. Once scheduled, the running process is __*NOT*__ preempted until the end of its time slice even if a new process with the higher goodness value wakes up.
 
@@ -219,7 +219,13 @@ $ schedtest2
 $
 ```
 
-In the above example, you can see that the number of ticks used by each process varies depending on its nice value which is changed every 30 seconds. We provide you with a Python script called ``graph.py`` in the ``./xv6-riscv-snu`` directory. You can use the Python script to convert the above ``xv6`` output into a graph image. In order to do this, you should run ``xv6`` using the ``make qemu-log`` command that saves all the output into the file named ``xv6.log``. And then run the ``make png`` command to generate the ``graph.png`` file using the Python script, ``graph.py``.
+In the above example, you can see that the number of ticks used by each process varies depending on its nice value which is changed every 30 seconds. We provide you with a Python script called ``graph.py`` in the ``./xv6-riscv-snu`` directory. You can use the Python script to convert the above ``xv6`` output into a graph image. Note that the ``graph.py`` script requires the Python ``numpy``, ``pandas``, and ``matplotlib`` packages. Please install them using the following command:
+
+```
+$ sudo apt install python3-numpy python3-pandas python3-matplotlib
+```
+
+In order to generate a graph, you should run ``xv6`` using the ``make qemu-log`` command that saves all the output into the file named ``xv6.log``. And then run the ``make png`` command to generate the ``graph.png`` file using the Python script, ``graph.py`` as shown below.
 
 <pre>
 $ <b>make qemu-log</b>
