@@ -41,7 +41,7 @@ struct proc {
 }
 </pre>
 
-### 1. Implement the ``nice()`` system call
+### 1. Implement the ``nice()`` system call (10 points)
 
 First, you need to implement the ``nice()`` system call that is used to set the ``nice`` value of a process.
 
@@ -66,7 +66,7 @@ __RETURN VALUE__
   - The resulting nice value exceeds the range [-20, 19].
 
 
-### 2. Implement a simplified Linux 2.4 scheduler
+### 2. Implement a simplified Linux 2.4 scheduler (75 points)
 
 Our simplified Linux 2.4 scheduler works as follows:
 
@@ -99,7 +99,7 @@ Note that because only half of the remaining time slice is added to the base tim
 6. Once scheduled, the running process is __*NOT*__ preempted until the end of its time slice even if a new process with the higher goodness value wakes up.
 
 
-### 3. Revise the ``getticks()`` system call
+### 3. Revise the ``getticks()`` system call (5 points)
 
 The skeleton code already includes an implementation of the ``getticks()`` system call for the default round-robin scheduler. You need to make sure the ``getticks()`` system call returns the correct number of ticks used by each process under the new scheduling algorithm.
 
@@ -121,6 +121,15 @@ __RETURN VALUE__
 
 * On success, the number of ticks is returned.
 * On error (e.g., no process found), -1 is returned.
+
+
+### 4. Design document (10 points)
+
+You need to prepare and submit the design document (in a single PDF file) for your implementation. Your design document should answer the followings:
+
+* Brief summary of modifications you have made
+* The details about your implementation of the ``nice()`` system call, the scheduling algorithm, and the ``getticks()`` system call
+* The result of running ``schedtest2`` (``xv6.log`` and ``graph.png`` files) with the analysis of your result
 
 
 ## Skeleton code
