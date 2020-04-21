@@ -187,7 +187,7 @@ $ schedtest2
 $
 ```
 
-Once you implement the simplified Linux 2.4 scheduler successfully, you should be able to get the result something similar to the following:
+Once you implement the simplified Linux 2.4 scheduler successfully, you should be able to get the result similar to the following:
 
 ```
 xv6 kernel is booting
