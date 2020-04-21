@@ -33,9 +33,9 @@ struct proc {
   int pid;                     // Process ID
 
   <b>// The following three fields are added for PA4</b>
-  <b>int nice;                 // Nice value (-20 <= nice <= 19)</b>
-  <b>int counter;              // Time slice</b>
-  <b>int ticks;                // Total number of ticks used</b>
+  <b>int nice;                    // Nice value (-20 <= nice <= 19)</b>
+  <b>int counter;                 // Time slice</b>
+  <b>int ticks;                   // Total number of ticks used</b>
 
   ...
 }
@@ -125,11 +125,11 @@ __RETURN VALUE__
 
 ### 4. Design document (10 points)
 
-You need to prepare and submit the design document (in a single PDF file) for your implementation. Your design document should answer the followings:
+You need to prepare and submit the design document (in a single PDF file) for your implementation. Your design document should include the followings:
 
 * Brief summary of modifications you have made
 * The details about your implementation of the ``nice()`` system call, the scheduling algorithm, and the ``getticks()`` system call
-* The result of running ``schedtest2`` (``xv6.log`` and ``graph.png`` files) with the analysis of your result
+* The result of running ``schedtest2`` (``xv6.log`` and ``graph.png`` files, see below for details) with the analysis of your result
 
 
 ## Skeleton code
